@@ -1,38 +1,137 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+  font-size: 62.5%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media (max-width: 998px) {
+  html {
+    font-size: 55%;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@media (max-width: 768px) {
+  html {
+    font-size: 45%;
+  }
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+}
+
+/* Login Page */
+
+.login-container {
+  /* height: 37rem; */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin: 5rem;
+  box-shadow: 1px 1px 4px 1px #ccc;
+  width: 32rem;
+  padding: 3rem;
+  gap: 1rem;
+}
+
+.input-constainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 3rem;
+  font-size: 1.9rem;
+  align-items: start;
+
+}
+
+.input-feild {
+  padding: 0.8rem 6rem 1rem 1rem;
+  display: flex;
+  justify-content: flex-start;
+  border: 1px solid #ccc;
+
+}
+
+.login-btn {
   color: white;
+  border: none;
+  font-weight: bold;
+  font-size: 1.7rem;
+  cursor: pointer;
+  border-radius: 0.3rem;
+  padding: 1.4rem 5rem;
+  background-color: #4848dc;
+
 }
 
-.App-link {
-  color: #61dafb;
+/* Styles for error messages */
+span {
+  color: #e74c3c;
+  font-size: 14px;
+  margin-top: 5px;
+  display: block;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* userdashbord */
+.userdashbord {
+  width: 150rem;
+  border: 1px solid #ccc;
+  margin: 5rem;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  padding: 2rem;
+  gap: 2rem;
+  font-size: 2rem;
+
+}
+
+.userInputFeild {
+  width: 100%;
+  border: 1px solid #ccc;
+
+}
+
+.variants {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.variants-elements {
+  width: 47%;
+  border: 1px solid #ccc;
+  padding: 0.8rem 6rem 1rem 1rem;
+}
+
+.cross {
+  position: relative;
+  top: 1.5rem;
+  cursor: pointer;
+}
+
+.variant-btn {
+  display: flex;
+  width: 10rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+  width: 10rem;
+}
+
+.add-variant-btn {
+  border: none;
+  background: none;
+  text-decoration: underline;
+  color: #4848dc;
+  font-size: 1.6rem;
+  cursor: pointer;
 }
