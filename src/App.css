@@ -4,6 +4,11 @@
   box-sizing: border-box;
   font-family: sans-serif;
 }
+:root {
+  --border-color: #ccc;
+  --blue-color: #4848dc;
+  --red-color: #e74c3c;
+}
 
 html {
   font-size: 62.5%;
@@ -25,18 +30,16 @@ html {
   display: flex;
   justify-content: center;
   text-align: center;
-
 }
 
 /* Login Page */
 
 .login-container {
-  /* height: 37rem; */
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 5rem;
-  box-shadow: 1px 1px 4px 1px #ccc;
+  box-shadow: 1px 1px 4px 1px var(--border-color);
   width: 32rem;
   padding: 3rem;
   gap: 1rem;
@@ -56,7 +59,7 @@ html {
   padding: 0.8rem 6rem 1rem 1rem;
   display: flex;
   justify-content: flex-start;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
 
 }
 
@@ -68,22 +71,22 @@ html {
   cursor: pointer;
   border-radius: 0.3rem;
   padding: 1.4rem 5rem;
-  background-color: #4848dc;
+  background-color: var(--blue-color);
 
 }
 
-/* Styles for error messages */
 span {
-  color: #e74c3c;
+  color: var(--red-color);
   font-size: 14px;
   margin-top: 5px;
   display: block;
 }
 
-/* userdashbord */
+/* Userdashbord */
+
 .userdashbord {
   width: 150rem;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
   margin: 5rem;
   display: flex;
   flex-direction: column;
@@ -96,7 +99,7 @@ span {
 
 .userInputFeild {
   width: 100%;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
 
 }
 
@@ -109,7 +112,7 @@ span {
 
 .variants-elements {
   width: 47%;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
   padding: 0.8rem 6rem 1rem 1rem;
 }
 
@@ -131,7 +134,46 @@ span {
   border: none;
   background: none;
   text-decoration: underline;
-  color: #4848dc;
+  color: var(--blue-color);
   font-size: 1.6rem;
   cursor: pointer;
+}
+
+/* card */
+
+.card-container {
+  display: flex;
+  gap: 15rem;
+  margin: 5rem;
+}
+
+.card {
+  width: 30rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 1.2rem 1rem 1rem 2em;
+}
+
+p {
+  font-size: 1.8rem;
+  padding-left: 1rem;
+}
+
+.variant-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.container {
+  margin: 6rem;
+}
+
+.heading {
+  color: var(--blue-color);
+  font-size: 3rem;
 }

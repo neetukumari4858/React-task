@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserDetail } from "../context/UserContext";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const navigate = useNavigate();
-  const {userData, setUserData}=UserDetail()
+  const { userData, setUserData } = UserDetail();
 
   const { email, password } = userData;
   const [errorMessage, setErrorMessage] = useState({});
@@ -35,7 +36,6 @@ const Login = () => {
         navigate("/admin");
       } else {
         if (email && password) {
-          
           var users = JSON.parse(localStorage.getItem("users") || "[]");
           const getUser = users?.find((item) => email === item?.email);
           if (!getUser) {
@@ -50,16 +50,15 @@ const Login = () => {
     }
 
     setErrorMessage(validationErrors);
-
     if (Object.keys(validationErrors).length === 0) {
-      alert("Form Submitted successfully");
+      toast.success("Form Submitted successfully!");
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <div className="login-container">
-        <h1>Login Form</h1>
+        <h1 className="heading">Login Form</h1>
 
         <div className="input-constainer">
           <label htmlFor="Email Address">Email Address</label>

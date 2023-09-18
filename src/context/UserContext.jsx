@@ -8,11 +8,8 @@ const UserDetailProvider = ({ children }) => {
     email: "",
     password: "",
   });
-  var getArr = JSON.parse(localStorage.getItem("users") || "[]")
-
-  const [data, setData] = useState(getArr);
   return (
-    <UserDetailContext.Provider value={{ userData, setUserData ,data, setData}}>
+    <UserDetailContext.Provider value={{ userData, setUserData }}>
       {children}
     </UserDetailContext.Provider>
   );
