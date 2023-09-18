@@ -8,7 +8,7 @@ const AdminDashbord = () => {
   return (
     <div className="container">
       <h1 className="heading">Admin Dashbord</h1>
-      {getUserProducts.length != 0 ? (
+      {getUserProducts.length !== 0 ? (
         <div className="card-container">
           {getUserProducts.map((item, i) => {
             return (
