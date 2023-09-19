@@ -4,13 +4,14 @@ import { toast } from "react-toastify";
 import { RxCross2 } from "react-icons/rx";
 
 const UserDashbord = () => {
+  const [image, setImage] = useState();
   const [productInfo, setProductInfo] = useState({
     productName: "",
     productDescription: "",
   });
 
   const { productName, productDescription } = productInfo;
-  const [variants, setVariant] = useState([{ Name: "", Amount: "" }]);
+  const [variants, setVariant] = useState([{ name: "", amount: "" }]);
 
   const { userData } = UserDetail();
 
@@ -26,7 +27,7 @@ const UserDashbord = () => {
   const addVariantHandler = (e) => {
     e.preventDefault();
 
-    setVariant([...variants, { Name: "", Amount: "" }]);
+    setVariant([...variants, { name: "", amount: "" }]);
   };
 
   const handleDelete = (index) => {
@@ -44,11 +45,14 @@ const UserDashbord = () => {
 
     const UserProductDetail = {
       userData: userData,
-      productInfo: productInfo,
-      variants: variants,
+      productData: [
+        { productInfo: productInfo, variants: variants, image: image },
+      ],
     };
     var userProducts = JSON.parse(localStorage.getItem("userProducts") || "[]");
-    const getUserProduct = userProducts?.find((item) => email === item?.email);
+    const getUserProduct = userProducts?.find(
+      (item) => item.userData.email === email
+    );
     if (!getUserProduct) {
       userProducts.push(UserProductDetail);
       localStorage.setItem("userProducts", JSON.stringify(userProducts));
@@ -57,7 +61,7 @@ const UserDashbord = () => {
     toast.success("Form Submitted successfully!");
 
     setProductInfo({ productName: "", productDescription: "" });
-    setVariant([{ Name: "", Amount: "" }]);
+    setVariant([{ name: "", amount: "" }]);
   };
 
   return (
@@ -81,22 +85,29 @@ const UserDashbord = () => {
           className="input-feild userInputFeild"
           onChange={onChangeHandle}
         />
+        <label>Product Image:</label>
+        <input
+          type="file"
+          accept="image/png, image/jpeg, image/jpg, image/svg"
+          onChange={(e) => setImage(e.target.files[0])}
+          className="input-feild userInputFeild"
+        />
         <label>Variants:</label>
         <div className="variants">
           {variants?.map((item, index) => {
             return (
               <>
                 <input
-                  value={item.Name}
-                  name="Name"
+                  value={item.name}
+                  name="name"
                   type="text"
                   placeholder="Name"
                   className="variants-elements"
                   onChange={(e) => variantHandler(e, index)}
                 />
                 <input
-                  value={item.Amount}
-                  name="Amount"
+                  value={item.amount}
+                  name="amount"
                   type="number"
                   placeholder="Amount"
                   className="variants-elements"

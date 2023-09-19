@@ -18,23 +18,32 @@ const AdminDashbord = () => {
                 <p>Password: {item.userData.password}</p>
 
                 <h1>Product Information: </h1>
-                <p>Product Name: {item.productInfo.productName}</p>
+                {item.productData.map((productItem) => {
+                  return (
+                    <>
+                      <p>Product Name: {productItem.productInfo.productName}</p>
+                      <p>
+                        Product Description:
+                        {productItem.productInfo.productDescription}
+                      </p>
+                      {productItem.variants.length === 0 ? (
+                        <h2>Product Variants:</h2>
+                      ) : null}
 
-                <p>
-                  Product Description: {item.productInfo.productDescription}
-                </p>
-
-                <h2>Product Variants:</h2>
-                <p>
-                  {item.variants.map((variantItem) => {
-                    return (
-                      <div className="variant-container">
-                        <p>Name: {variantItem.Name}</p>
-                        <p>Amount: {variantItem.Amount}</p>
-                      </div>
-                    );
-                  })}
-                </p>
+                      <p>
+                        {productItem.variants.map((variantItem) => {
+                          const { name, amount } = variantItem;
+                          return (
+                            <div className="variant-container">
+                              {name && <p>Name: {name}</p>}
+                              {amount && <p>Amount: {amount}</p>}
+                            </div>
+                          );
+                        })}
+                      </p>
+                    </>
+                  );
+                })}
               </div>
             );
           })}
